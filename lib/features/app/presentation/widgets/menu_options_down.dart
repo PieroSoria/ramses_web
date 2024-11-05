@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax_plus/iconsax_plus.dart';
+import 'package:ramses_web/core/helper/app_icons.dart';
 
 class MenuOptionsDown extends StatefulWidget {
   const MenuOptionsDown({super.key});
@@ -18,7 +18,7 @@ class _MenuOptionsDownState extends State<MenuOptionsDown>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1800),
+      duration: const Duration(milliseconds: 800),
     );
 
     _animation = Tween<double>(begin: 0, end: 400).animate(
@@ -27,7 +27,9 @@ class _MenuOptionsDownState extends State<MenuOptionsDown>
         curve: Curves.elasticOut,
       ),
     );
-    _animationController.forward();
+    Future.delayed(const Duration(seconds: 1), () {
+      _animationController.forward();
+    });
   }
 
   @override
@@ -40,7 +42,68 @@ class _MenuOptionsDownState extends State<MenuOptionsDown>
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: _animationController,
-      builder: (context, snapshot) {
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Flexible(
+            child: Padding(
+              padding: EdgeInsets.only(right: 5),
+              child: Text(
+                "SIGUENOS",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+            ),
+          ),
+          Flexible(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: GestureDetector(
+                onTap: () {},
+                child: Image.asset(
+                  AppIcons.facebook,
+                  width: 45,
+                  height: 45,
+                  fit: BoxFit.fill,
+                ),
+              ),
+            ),
+          ),
+          Flexible(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: GestureDetector(
+                onTap: () {},
+                child: Image.asset(
+                  AppIcons.instagram,
+                  width: 45,
+                  height: 45,
+                  fit: BoxFit.fill,
+                ),
+              ),
+            ),
+          ),
+          Flexible(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5),
+              child: GestureDetector(
+                onTap: () {},
+                child: Image.asset(
+                  AppIcons.tiktok,
+                  width: 55,
+                  height: 55,
+                  fit: BoxFit.fill,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+      builder: (context, child) {
         return ClipPath(
           clipper: MyCustomClipperBto(),
           child: Container(
@@ -50,40 +113,7 @@ class _MenuOptionsDownState extends State<MenuOptionsDown>
             decoration: const BoxDecoration(
               color: Colors.amber,
             ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: Image.asset(
-                    'assets/icons/facebook.png',
-                    width: 50,
-                    height: 50,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Image.asset(
-                    'assets/icons/instagram.png',
-                    width: 50,
-                    height: 50,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Image.asset(
-                    'assets/icons/tiktok.png',
-                    width: 50,
-                    height: 50,
-                    fit: BoxFit.fill,
-                    scale: 70,
-                  ),
-                )
-              ],
-            ),
+            child: child,
           ),
         );
       },

@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "rances_web",
+            "name": "ramses_web",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "rances_web (profile mode)",
+            "name": "ramses_web (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "rances_web (release mode)",
+            "name": "ramses_web (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

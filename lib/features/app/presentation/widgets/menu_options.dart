@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ramses_web/core/helper/app_icons.dart';
 
 class MenuOptions extends StatefulWidget {
   const MenuOptions({super.key});
@@ -17,7 +18,7 @@ class _MenuOptionsState extends State<MenuOptions>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1800),
+      duration: const Duration(milliseconds: 800),
     );
 
     _animation = Tween<double>(begin: 0, end: 400).animate(
@@ -26,7 +27,9 @@ class _MenuOptionsState extends State<MenuOptions>
         curve: Curves.elasticOut,
       ),
     );
-    _animationController.forward();
+    Future.delayed(const Duration(seconds: 1), () {
+      _animationController.forward();
+    });
   }
 
   @override
@@ -39,17 +42,40 @@ class _MenuOptionsState extends State<MenuOptions>
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: _animationController,
-      builder: (context, snapshot) {
+      child: ElevatedButton.icon(
+        onPressed: () {},
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.black,
+          foregroundColor: Colors.amber,
+        ),
+        icon: Flexible(
+          child: Image.asset(
+            AppIcons.whatsapp,
+            color: Colors.amber,
+          ),
+        ),
+        iconAlignment: IconAlignment.end,
+        label: const Text(
+          "EMPIEZA YA!",
+          style: TextStyle(
+            color: Colors.amber,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+      builder: (context, child) {
         return ClipPath(
           clipper: MyCustomClipper(),
           child: Container(
-              width: _animation.value.isNaN ? 0 : _animation.value,
-              height: 80,
-              padding: const EdgeInsets.only(left: 40, bottom: 30),
-              decoration: const BoxDecoration(
-                color: Colors.amber,
-              ),
-              child: Center()),
+            width: _animation.value.isNaN ? 0 : _animation.value,
+            height: 80,
+            padding: const EdgeInsets.only(left: 40, right: 40, bottom: 30),
+            decoration: const BoxDecoration(
+              color: Colors.amber,
+            ),
+            child: _animation.value.isNaN ? const SizedBox() : child,
+          ),
         );
       },
     );

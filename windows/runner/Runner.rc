@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.ds" "\0"
-            VALUE "FileDescription", "rances_web" "\0"
+            VALUE "FileDescription", "ramses_web" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "rances_web" "\0"
+            VALUE "InternalName", "ramses_web" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.ds. All rights reserved." "\0"
-            VALUE "OriginalFilename", "rances_web.exe" "\0"
-            VALUE "ProductName", "rances_web" "\0"
+            VALUE "OriginalFilename", "ramses_web.exe" "\0"
+            VALUE "ProductName", "ramses_web" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

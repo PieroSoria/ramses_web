@@ -3,32 +3,53 @@ import 'package:flutter/material.dart';
 import 'dart:html' as html;
 import 'dart:ui_web' as ui_web;
 
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+class VideoWebPage extends StatefulWidget {
+  const VideoWebPage({super.key});
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<VideoWebPage> createState() => _VideoWebPageState();
 }
 
-class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
+class _VideoWebPageState extends State<VideoWebPage> with TickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+    _animation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.bounceIn,
+    );
+
+    Future.delayed(const Duration(milliseconds: 100), () {
+      _controller.forward();
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
         color: Colors.black,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: LayoutBuilder(builder: (context, constraints) {
-          return SizedBox(
-            width: constraints.maxWidth,
-            height: constraints.maxHeight,
-            child: const WebVideoPlayer(),
-          );
-        }),
+      child: Center(
+        child: AnimatedBuilder(
+          animation: _controller,
+          child: const WebVideoPlayer(),
+          builder: (context, child) {
+            return AnimatedOpacity(
+              opacity: _animation.value,
+              duration: const Duration(seconds: 1),
+              child: child,
+            );
+          },
+        ),
       ),
     );
   }
@@ -83,7 +104,7 @@ class _WebVideoPlayerState extends State<WebVideoPlayer> {
 
   @override
   void dispose() {
-    _observer?.disconnect(); // Desconectar el observador
+    _observer?.disconnect();
     super.dispose();
   }
 

@@ -1,5 +1,5 @@
-import 'package:rances_web/features/app/presentation/pages/app_page.dart';
-import 'package:rances_web/main.dart';
+import 'package:ramses_web/features/app/presentation/pages/app_page.dart';
+import 'package:ramses_web/main.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

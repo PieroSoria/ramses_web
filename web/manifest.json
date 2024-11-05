@@ -1,6 +1,6 @@
 {
-    "name": "rances_web",
-    "short_name": "rances_web",
+    "name": "ramses_web",
+    "short_name": "ramses_web",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

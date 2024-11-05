@@ -1,4 +1,4 @@
-package com.ds.rances_web
+package com.ds.ramses_web
 
 import io.flutter.embedding.android.FlutterActivity
 

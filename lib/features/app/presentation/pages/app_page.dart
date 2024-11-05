@@ -1,29 +1,8 @@
-import 'package:rances_web/features/app/presentation/widgets/main_page.dart';
-import 'package:rances_web/features/app/presentation/widgets/mainpagebloc.dart';
-import 'package:rances_web/features/app/presentation/widgets/menu_options.dart';
-import 'package:rances_web/features/app/presentation/widgets/menu_options_down.dart';
-import 'package:flutter/foundation.dart';
+import 'package:ramses_web/features/app/presentation/widgets/mainpagebloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_3d_controller/flutter_3d_controller.dart';
-import 'package:video_player/video_player.dart';
 
-class AppPage extends StatefulWidget {
+class AppPage extends StatelessWidget {
   const AppPage({super.key});
-
-  @override
-  State<AppPage> createState() => _AppPageState();
-}
-
-class _AppPageState extends State<AppPage> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
