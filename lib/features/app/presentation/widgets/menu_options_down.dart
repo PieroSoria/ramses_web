@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ramses_web/core/helper/app_icons.dart';
+import 'dart:html' as html;
 
 class MenuOptionsDown extends StatefulWidget {
   const MenuOptionsDown({super.key});
@@ -30,6 +31,10 @@ class _MenuOptionsDownState extends State<MenuOptionsDown>
     Future.delayed(const Duration(seconds: 1), () {
       _animationController.forward();
     });
+  }
+
+  void openUrlPage(String url) {
+    html.window.open(url, '_blank');
   }
 
   @override
@@ -63,7 +68,9 @@ class _MenuOptionsDownState extends State<MenuOptionsDown>
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () => openUrlPage(
+                  'https://www.facebook.com/RamsesGymPeru',
+                ),
                 child: Image.asset(
                   AppIcons.facebook,
                   width: 45,
@@ -77,7 +84,9 @@ class _MenuOptionsDownState extends State<MenuOptionsDown>
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () => openUrlPage(
+                  'https://www.instagram.com/ramsesgym.starosa/',
+                ),
                 child: Image.asset(
                   AppIcons.instagram,
                   width: 45,
@@ -91,7 +100,9 @@ class _MenuOptionsDownState extends State<MenuOptionsDown>
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () => openUrlPage(
+                  'https://www.tiktok.com/@ramsesgymoficial',
+                ),
                 child: Image.asset(
                   AppIcons.tiktok,
                   width: 55,

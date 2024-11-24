@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ramses_web/core/helper/app_icons.dart';
+import 'dart:html' as html;
 
 class MenuOptions extends StatefulWidget {
   const MenuOptions({super.key});
@@ -43,7 +44,12 @@ class _MenuOptionsState extends State<MenuOptions>
     return AnimatedBuilder(
       animation: _animationController,
       child: ElevatedButton.icon(
-        onPressed: () {},
+        onPressed: () {
+          html.window.open(
+            'https://api.whatsapp.com/send?phone=51915335949&text=%F0%9F%92%AAquiero%20inscribirme%F0%9F%92%AA&fbclid=IwAR2vOEaK6tPHQKZioRBkkzZwe_08D5KQT7w2yPgUoQ06IiSA-icXcM_Izy4',
+            '_blank',
+          );
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.black,
           foregroundColor: Colors.amber,

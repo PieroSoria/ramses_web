@@ -4,4 +4,8 @@ class AppImages {
   static const spinning = 'assets/images/spinning-2.png';
   static const zonafuncional = 'assets/images/zona-funcional.png';
   static const clasegrupales = 'assets/images/clases-grupales.png';
+  static const fernandowisse = 'assets/images/fernandowisse.png';
+  static const santarosa = 'assets/images/santarosa.jpeg';
+  static const mapssantarosa = 'assets/images/maps_santarosa.png';
+  static const mapsfernandowisse = 'assets/images/maps_fernandowisse.png';
 }
